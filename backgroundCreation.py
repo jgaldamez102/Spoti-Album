@@ -45,7 +45,7 @@ class Collage:
         return blur
 
     #creates the Collage 
-    def createCollage(self) -> None:
+    def createCollage(self) -> Image:
         #use this to keep track of the images
         self.photoCount = 0 
         collage = Image.new("RGBA", (1284,2778), color=(255,255,255,255))
@@ -70,8 +70,8 @@ class Collage:
                     print("Error:" + str(e))
         if DEBUG:
             collage.show()
-        collage.save("collage.png")
-
+            collage.save("collage.png")
+        return collage
 
     #set dimensions
     def setDimensions(self) -> None:
@@ -84,4 +84,4 @@ class Collage:
 if DEBUG:
     if __name__ =="__main__":
         newCollage = Collage()
-        newCollage.createCollage()
+        currentCollage = newCollage.createCollage()
